@@ -4,8 +4,8 @@ library("readstata13")
 library(tidyverse)
 library(car)
 ## code book http://www.jakebowers.org/PS531/anes_timeseries_2016_userguidecodebook.pdf
-anes16 <- read.dta13("http://jakebowers.org/PS531/anes_timeseries_2016.dta")
-## anes16 <- read.dta13("anes_timeseries_2016.dta")
+# anes16 <- read.dta13("http://jakebowers.org/PS531/anes_timeseries_2016.dta")
+anes16 <- read.dta13("anes_timeseries_2016.dta")
 
 ## anes16$age <- with(anes16,ifelse(V161267<0,NA,V161267))
 ## Feeling thermometer for Trump asked AFTER the election
