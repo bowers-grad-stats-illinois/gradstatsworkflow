@@ -1,5 +1,6 @@
 ## Extract variables and recode
 
+library(here)
 .libPaths(here("libs"))
 library("readstata13")
 library(tidyverse)
@@ -86,11 +87,13 @@ stopifnot(all(unique(anes16$immiglevel[!is.na(anes16$immiglevel)]) %in% 1:5))
 anes16$immigjobs <- ifelse(anes16$V162158<0,NA,anes16$V162158)
 stopifnot(all(unique(anes16$immigjobs[!is.na(anes16$immigjobs)]) %in% 1:5))
 
-## Check to make sure all covariates exist in the data
-stopifnot(all(covs %in% names(anes16)))
 
 covs <- c("educyrs", "age", "gender", "pid", "income", "state", "immiglevel", "immigjobs")
 outcome <- c("votetrump")
+
+## Check to make sure all covariates exist in the data
+stopifnot(all(covs %in% names(anes16)))
+
 nes16 <- droplevels(anes16[, c(covs,outcome)] )
 
 stopifnot(nrow(nes16) == nrow(anes16))

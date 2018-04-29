@@ -1,6 +1,5 @@
 
 library(here)
-.libPaths(here("libs"))
 library(rstanarm)
 
 ## https://cran.r-project.org/web/packages/rstanarm/vignettes/rstanarm.html
@@ -13,7 +12,6 @@ SEED <- 12345
 
 glm1 <- stan_glm( votetrump ~ immiglevel + immigjobs,
                               data = nes16,
-                              family = binomial(link = "logit"),
                               prior = student_t(df = 7),
                               prior_intercept = student_t(df = 7),
                               chains = 4, cores = parallel::detectCores(), seed = SEED)

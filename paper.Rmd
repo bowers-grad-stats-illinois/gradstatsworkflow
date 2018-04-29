@@ -1,7 +1,37 @@
 ---
 title: 'A paper'
 author: 'Jake Bowers'
+date: "`r format(Sys.time(), '%a %b %d %X %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    toc: true
+    fig_caption: true
+    css: bowersarticle.css 
+  pdf_document:
+    fig_caption: true
+    fig_height: 7
+    fig_width: 7
+    keep_tex: yes
+    latex_engine: xelatex
+    md_extensions: +autolink_bare_uris+tex_math_dollars
+    number_sections: yes
+    template: bowersarticle.latex
 ---
+
+```{r include=FALSE,echo=FALSE}
+require(knitr)
+opts_chunk$set(strip.white=TRUE,
+               width.cutoff=132,
+               size='\\scriptsize',
+               out.width='.8\\textwidth',
+               ##message=FALSE, ## Uncomment for production
+               ##warning=FALSE, ## Uncomment for production
+               results=FALSE, ## by default no printing
+               comment=NA)
+
+options(digits=4,scipen=10)
+```
 
 
 # References
