@@ -6,7 +6,8 @@
 
 ## First, install the here package globally. It would be better to do this all locally, but we need the here package, I think.
 pkgs <- installed.packages()
-firstpkgs <- c("here","packrat","devtools")
+## firstpkgs <- c("here","packrat","devtools")
+firstpkgs <- c("here","devtools")
 
 installhere <- firstpkgs[!(firstpkgs  %in% pkgs[,"Package"])]
 if(length(installhere)>0){
@@ -14,17 +15,18 @@ if(length(installhere)>0){
 }
 library(here)
 
-dir.create(here("packrat"), showWarnings = FALSE)
-dir.create(here("packrat/lib"), showWarnings = FALSE)
-.libPaths(here("packrat/lib"))
+#dir.create(here("packrat"), showWarnings = FALSE)
+#dir.create(here("packrat/lib"), showWarnings = FALSE)
+dir.create(here("lib"))
+##.libPaths(here("packrat/lib"))
+.libPaths(here("lib"))
 
 ## Set working directory to the root of this project
 thisdir <- here::here()
 setwd(thisdir)
 
-
 ## Setup the packrat local library.
-packrat::init(thisdir, options = list(auto.snapshot = FALSE, external.packages = c("here"), use.cache=TRUE))
+##packrat::init(thisdir, options = list(auto.snapshot = FALSE, external.packages = c("here"), use.cache=TRUE))
 
 secondpkgs <- c("knitr","rmarkdown","readstata13","rstanarm")
 
