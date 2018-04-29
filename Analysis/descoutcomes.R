@@ -1,5 +1,6 @@
 ## Describe the thing that we are going to explain: Trump vote
 
+.libPaths("../libs")
 load("../Data/nes16.rda")
 
 sampsize <- nrow(nes16)
