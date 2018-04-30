@@ -28,7 +28,7 @@ setwd(thisdir)
 ## Setup the packrat local library.
 ##packrat::init(thisdir, options = list(auto.snapshot = FALSE, external.packages = c("here"), use.cache=TRUE))
 
-secondpkgs <- c("knitr","rmarkdown","readstata13","rstanarm")
+secondpkgs <- c("knitr","rmarkdown","readstata13","rstanarm","tidyverse","xtable")
 
 toinstallsecond <- secondpkgs[!(secondpkgs %in% pkgs[,"Package"])]
 if(length(toinstallsecond)>0){

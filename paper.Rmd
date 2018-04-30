@@ -2,18 +2,21 @@
 title: 'A paper'
 author: 'Jake Bowers'
 date: "`r format(Sys.time(), '%a %b %d %X %Y')`"
-bibliography: main.bib 
+bibliography: main.bib
 biblio-files: main.bib
+biblio-style: authoryear-comp
+biblatex: true
 fontsize: 12pt
 geometry: margin=1in
 graphics: yes
-biblio-style: authoryear-comp
+latex_engine: xelatex
+pdf_engine: xelatex
 output:
   html_document:
     code_folding: hide
     toc: true
     fig_caption: true
-    css: bowersarticle.css 
+    css: bowersarticle.css
   pdf_document:
     fig_caption: true
     fig_height: 7
@@ -52,7 +55,10 @@ This is the abstract
 
 # Overview and Introduction
 
-This is why this is important. Roughly speaking, this is what we are going to do. \cite
+This is why this is important. Roughly speaking, this is what we are going to
+do. \cite{levitsky2018democracies} draw comparisons between Trump and other
+democratically elected leaders.^[Thinking about general ideas of reproducible
+workflow \parencite{bowers2016improve}.]
 
 # Design
 
@@ -79,13 +85,13 @@ Figure~\ref{fig:lines} shows something important.
 
 \begin{figure}[h!]
 \centering
-<!-- \includegraphics[width=.5\textwidth]{Figures/reglines.pdf} -->
+\includegraphics[width=.5\textwidth]{Figures/reglines.pdf}
 \caption{This figure shows something.}\label{fig:lines}
 \end{figure}
 
 Table~\ref{tab:thetab} also is important.
 
-<!-- \input{Figures/thetab.tex} -->
+\input{Figures/thetab.tex}
 
 # Discussion, Conclusion
 

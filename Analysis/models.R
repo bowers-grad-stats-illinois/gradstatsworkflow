@@ -10,7 +10,7 @@ load(here("Data", "nes16.rda"))
 ## covs <- c("educyrs", "age", "gender", "pid", "income", "state", "immiglevel", "immigjobs")
 ## outcome <- c("votetrump")
 
-summary(nes16[, all.vars(formula(glm1))])
+summary(nes16[, c("votetrump", "immiglevel", "educyrs")])
 
 wrkdat <- na.omit(nes16[, c("votetrump", "immiglevel", "educyrs")])
 
@@ -54,4 +54,4 @@ apply(yRepFixed, 2, summary)
 
 thepost <- as.data.frame(glm1)
 
-save(glm1, y_rep, thepost, credinterval, glm1summary, file = "models.rda")
+save(glm1, yRep, yRepFixed, thepost, credinterval, glm1summary, file = "models.rda")
