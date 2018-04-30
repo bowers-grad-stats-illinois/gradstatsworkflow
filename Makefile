@@ -2,11 +2,11 @@
 
 ## Make a pdf of the paper itself
 
-paper.pdf: paper.tex main.bib
-	latexmk -pdf paper.tex
-
-paper.tex: paper.Rmd Analysis/models.rda Figures/reglines.pdf
-	Rscript -e "library(knitr); library(methods); knit('paper.Rmd')"
+paper.pdf:  paper.Rmd Analysis/models.rda \
+	Figures/reglines.pdf \
+	Figures/thetab.tex \
+	Analysis/desc.rda
+	Rscript -e "library(rmarkdown); render('paper.Rmd',output_format=pdf_document())"
 
 ## Setup required libraries
 
@@ -27,7 +27,13 @@ Analysis/models.rda:  Analysis/models.R Data/nes16.rda packages.done
 
 ## Make figures and/or tables
 
+Analysis/desc.rda: Analysis/descoutcomes.R Data/nes16.rda
+	cd Analysis && R CMD BATCH descoutcomes.R
+
 Figures/reglines.pdf: Figures/reglines.R Analysis/models.rda packages.done
 	cd Figures && R CMD BATCH reglines.R
+
+Figures/thetab.tex: Figures/thetab.R Data/nes16.rda
+	cd Figures && R CMD BATCH thetab.R
 
 
