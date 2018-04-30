@@ -2,6 +2,12 @@
 title: 'A paper'
 author: 'Jake Bowers'
 date: "`r format(Sys.time(), '%a %b %d %X %Y')`"
+bibliography: main.bib 
+biblio-files: main.bib
+fontsize: 12pt
+geometry: margin=1in
+graphics: yes
+biblio-style: authoryear-comp
 output:
   html_document:
     code_folding: hide
@@ -14,12 +20,17 @@ output:
     fig_width: 7
     keep_tex: yes
     latex_engine: xelatex
+    citation_package: biblatex
     md_extensions: +autolink_bare_uris+tex_math_dollars
     number_sections: yes
     template: bowersarticle.latex
+    includes:
+        in_header:
+           - defs-all.sty
 ---
 
 ```{r include=FALSE,echo=FALSE}
+library(here)
 require(knitr)
 opts_chunk$set(strip.white=TRUE,
                width.cutoff=132,
@@ -32,6 +43,51 @@ opts_chunk$set(strip.white=TRUE,
 
 options(digits=4,scipen=10)
 ```
+
+\begin{abstract}
+
+This is the abstract
+
+\end{abstract}
+
+# Overview and Introduction
+
+This is why this is important. Roughly speaking, this is what we are going to do. \cite
+
+# Design
+
+We will compare the voting outcomes of people who think that there should be
+more immigration with people who think there should be less immigration, and
+especially we wonder whether education (measured in years) moderates the
+relationship between such attitudes and voting. The immigration attitudes
+question was:
+
+
+> Not using the booklet. Do you think the number of immigrants from foreign countries who are permitted to come to the United States to live should be [increased a lot, increased a little, left the same as it is now, decreased a little, or decreased a lot / decreased a lot, decreased a little, left the same as it is now, increased a little, or increased a lot]? For Web administration, reference to the respondent booklet was omitted. Forward/reverse response option order
+
+```{r}
+load(here("Analysis/desc.rda"))
+```
+
+## Outcomes
+
+Of the `r sampsize` people in the study, `r proptrumpvote*100`% reported voting for Trump.
+
+# Analysis
+
+Figure~\ref{fig:lines} shows something important.
+
+\begin{figure}[h!]
+\centering
+<!-- \includegraphics[width=.5\textwidth]{Figures/reglines.pdf} -->
+\caption{This figure shows something.}\label{fig:lines}
+\end{figure}
+
+Table~\ref{tab:thetab} also is important.
+
+<!-- \input{Figures/thetab.tex} -->
+
+# Discussion, Conclusion
 
 
 # References
