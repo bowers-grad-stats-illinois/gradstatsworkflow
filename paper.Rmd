@@ -4,19 +4,11 @@ author: 'Jake Bowers'
 date: "`r format(Sys.time(), '%a %b %d %X %Y')`"
 bibliography: main.bib
 biblio-files: main.bib
-biblio-style: authoryear-comp
-biblatex: true
-fontsize: 12pt
+mainfont: "Crimson"
 geometry: margin=1in
 graphics: yes
-latex_engine: xelatex
-pdf_engine: xelatex
+fontsize: 12pt
 output:
-  html_document:
-    code_folding: hide
-    toc: true
-    fig_caption: true
-    css: bowersarticle.css
   pdf_document:
     fig_caption: true
     fig_height: 7
@@ -30,6 +22,12 @@ output:
     includes:
         in_header:
            - defs-all.sty
+  html_document:
+    code_folding: hide
+    toc: true
+    fig_caption: true
+    css: bowersarticle.css
+
 ---
 
 ```{r include=FALSE,echo=FALSE}
@@ -42,7 +40,8 @@ opts_chunk$set(strip.white=TRUE,
                ##message=FALSE, ## Uncomment for production
                ##warning=FALSE, ## Uncomment for production
                results=FALSE, ## by default no printing
-               comment=NA)
+               comment=NA,
+               echo=FALSE)
 
 options(digits=4,scipen=10)
 ```
@@ -81,19 +80,20 @@ Of the `r sampsize` people in the study, `r proptrumpvote*100`% reported voting 
 
 # Analysis
 
-Figure~\ref{fig:lines} shows something important.
+Figure \ref{fig:lines} shows something important.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=.5\textwidth]{Figures/reglines.pdf}
-\caption{This figure shows something.}\label{fig:lines}
+\caption{This figure shows something and this caption is detailed anough that you can understand the figure without having to go hunting in the text.}\label{fig:lines}
 \end{figure}
 
-Table~\ref{tab:thetab} also is important.
+Table \ref{tab:thetab} also is important.
 
 \input{Figures/thetab.tex}
 
 # Discussion, Conclusion
 
+\clearpage
 
 # References
