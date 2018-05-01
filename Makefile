@@ -9,7 +9,7 @@ paper.pdf:  paper.Rmd Analysis/models.rda \
 	bowersarticle.latex \
 	main.bib \
 	defs-all.sty
-	Rscript -e "library(rmarkdown); render('paper.Rmd',output_format=pdf_document(),clean=FALSE)"
+	Rscript -e "library(rmarkdown); render('paper.Rmd',clean=FALSE)"
 
 ## Setup required libraries
 
